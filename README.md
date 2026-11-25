@@ -1,6 +1,8 @@
+# GTA VI - Corridas de Rua em Vice City
+
 ## Integrantes
 
-- Hellen Lisboa - RA 2040482522044
-- Isabela Rocha - RA 2040482522018
+- Hellen Dayane Lisboa - RA 2040482522044
+- Isabela Rocha do Nascimento - RA 2040482522018
 - Mateus Correia Paulino - RA 2040482522001
-- Nathan Lucas - RA 2040482522006
+- Nathan Lucas Lima Castro - RA 2040482522006
