@@ -1,11 +1,11 @@
 package br.com.fatec;
 
 import java.util.Random;
+
 import lombok.Getter;
 
 @Getter
 public class Piloto {
-
     private String nome;
     private Carro carro;
     private int pontos;
@@ -26,8 +26,8 @@ public class Piloto {
             total = total + carro.getTempoDeVolta() + atraso;
         }
         if (nitro) {
-            total = total - 10;
-        }
+         total = Math.max(0, total - 10);
+}
         this.tempo = total;
     }
 
