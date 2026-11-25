@@ -1,5 +1,3 @@
-# GTA VI - Corridas de Rua em Vice City
-
 ## Integrantes
 
 - Hellen Dayane Lisboa - RA 2040482522044
