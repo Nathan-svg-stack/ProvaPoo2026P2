@@ -1,6 +1,7 @@
 
 package br.com.fatec;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -30,6 +31,7 @@ public class Jogo {
                     break;
 
                 case 2:
+                exibirRanking();
                     break;
 
                 case 0:
@@ -240,6 +242,7 @@ public class Jogo {
 
         return texto.toString();
     }
+    
     private static int lerInteiro(String mensagem) {
 
         String entrada = JOptionPane.showInputDialog(
@@ -256,5 +259,47 @@ public class Jogo {
         } catch (NumberFormatException e) {
             return -1;
         }
+    }
+
+    private static void exibirRanking() {
+
+        PartidaDAO dao = new PartidaDAO();
+
+        List<Partida> partidas = dao.listar();
+
+        if (partidas.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null, "Nenhuma partida encontrada."
+            );
+            return;
+        }
+
+        partidas.sort(
+                Comparator.comparingInt(
+                        Partida::getPontuacao
+                ).reversed()
+        );
+
+        StringBuilder ranking = new StringBuilder();
+
+        ranking.append("RANKING\n\n");
+
+        int limite = Math.min(5, partidas.size());
+
+        for (int i = 0; i < limite; i++) {
+
+            Partida partida = partidas.get(i);
+
+            ranking.append(i + 1)
+                    .append("º - ")
+                    .append(partida.getJogador())
+                    .append(" | ")
+                    .append(partida.getPontuacao())
+                    .append(" pontos\n");
+        }
+
+        JOptionPane.showMessageDialog(
+                null, ranking.toString()
+        );
     }
 }
